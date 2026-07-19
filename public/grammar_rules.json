@@ -1,0 +1,149 @@
+{
+  "grammar_rules": [
+    {
+      "id": 1,
+      "rule": "المضارع البسيط (Present Simple)",
+      "structure": "Subject + Verb (s/es with singular)",
+      "usage": [
+        "للحديث عن العادات والروتين اليومي",
+        "للحقائق العامة والعلمية الثابتة",
+        "للمواعيد المجدولة في المستقبل"
+      ],
+      "keywords": ["always", "usually", "often", "sometimes", "never", "every day"],
+      "examples": [
+        {"sentence": "I wake up at 6 AM every day.", "translation": "أستيقظ الساعة 6 صباحاً كل يوم.", "explanation": "هذه عادة يومية وروتين متكرر."},
+        {"sentence": "The sun rises in the east.", "translation": "الشمس تشرق من الشرق.", "explanation": "هذه حقيقة علمية ثابتة."}
+      ],
+      "negative_form": "Subject + don't/doesn't + Verb (infinitive)",
+      "question_form": "Do/Does + Subject + Verb (infinitive)?",
+      "common_mistakes": [
+        "❌ He live in London. ->  He lives in London.",
+        "❌ She doesn't likes coffee. ->  She doesn't like coffee."
+      ]
+    },
+    {
+      "id": 2,
+      "rule": "الماضي البسيط (Past Simple)",
+      "structure": "Subject + Verb-ed (or 2nd form of irregular verbs)",
+      "usage": [
+        "لأحداث بدأت وانتهت بالكامل في الماضي",
+        "لرواية القصص وسرد الأحداث المتتالية"
+      ],
+      "keywords": ["yesterday", "last week", "ago", "in 2010"],
+      "examples": [
+        {"sentence": "I visited my grandmother yesterday.", "translation": "زرت جدتي بالأمس.", "explanation": "حدث حدث وانتهى في وقت محدد بالماضي."},
+        {"sentence": "We bought a new car last week.", "translation": "اشترينا سيارة جديدة الأسبوع الماضي.", "explanation": "فعل شاذ (buy -> bought)."}
+      ],
+      "negative_form": "Subject + didn't + Verb (infinitive)",
+      "question_form": "Did + Subject + Verb (infinitive)?",
+      "common_mistakes": [
+        "❌ I didn't went there. ->  I didn't go there.",
+        "❌ She buyed a dress. ->  She bought a dress."
+      ]
+    },
+    {
+      "id": 3,
+      "rule": "المضارع المستمر (Present Continuous)",
+      "structure": "Subject + am/is/are + Verb-ing",
+      "usage": [
+        "لأحداث تحدث الآن في لحظة التحدث",
+        "لمواقف مؤقتة تحدث في الوقت الحالي",
+        "لترتيبات مستقبلية مؤكدة"
+      ],
+      "keywords": ["now", "right now", "at the moment", "look", "listen"],
+      "examples": [
+        {"sentence": "I am drinking coffee right now.", "translation": "أنا أشرب القهوة الآن.", "explanation": "الحدث مستمر في هذه اللحظة بالذات."},
+        {"sentence": "They are traveling to Dubai next month.", "translation": "هم مسافرون إلى دبي الشهر القادم.", "explanation": "ترتيب مستقبلي مخطط له ومؤكد."}
+      ],
+      "negative_form": "Subject + am/is/are + not + Verb-ing",
+      "question_form": "Am/Is/Are + Subject + Verb-ing?",
+      "common_mistakes": [
+        "❌ I am knowing the answer. ->  I know the answer. (أفعال الحالة لا تأتي في المستمر)",
+        "❌ She is make dinner. ->  She is making dinner."
+      ]
+    },
+    {
+      "id": 4,
+      "rule": "الماضي المستمر (Past Continuous)",
+      "structure": "Subject + was/were + Verb-ing",
+      "usage": [
+        "لحدث كان مستمراً في وقت معين في الماضي",
+        "لحدث طويل قطعه حدث آخر قصير في الماضي",
+        "لحدثين مستمرين في نفس الوقت"
+      ],
+      "keywords": ["while", "when", "as", "at that time"],
+      "examples": [
+        {"sentence": "I was cooking when you called.", "translation": "كنت أطبخ عندما اتصلت بي.", "explanation": "الطبخ كان حدثاً طويلاً مستمراً, قطعه الاتصال الهاتفي."},
+        {"sentence": "She was reading a book all evening.", "translation": "كانت تقرأ كتاباً طوال المساء.", "explanation": "الحدث استمر لفترة زمنية محددة بالماضي."}
+      ],
+      "negative_form": "Subject + was/were + not + Verb-ing",
+      "question_form": "Was/Were + Subject + Verb-ing?",
+      "common_mistakes": [
+        "❌ We was playing football. ->  We were playing football.",
+        "❌ While I cooked, she was sleeping. ->  While I was cooking, she was sleeping."
+      ]
+    },
+    {
+      "id": 5,
+      "rule": "المستقبل البسيط (Future - Will)",
+      "structure": "Subject + will + Verb (infinitive)",
+      "usage": [
+        "للقرارات السريعة واللحظية",
+        "للتوقعات المستقبلية بدون دليل",
+        "للعروض والوعود والتهديدات"
+      ],
+      "keywords": ["tomorrow", "next week", "soon", "I think", "maybe"],
+      "examples": [
+        {"sentence": "I will help you with your homework.", "translation": "سأساعدك في واجبك المنزلي.", "explanation": "عرض فوري للمساعدة."},
+        {"sentence": "I think it will rain tomorrow.", "translation": "أعتقد أنها ستمطر غداً.", "explanation": "تنبؤ أو توقع شخصي بدون دليل ملموس."}
+      ],
+      "negative_form": "Subject + will not (won't) + Verb (infinitive)",
+      "question_form": "Will + Subject + Verb (infinitive)?",
+      "common_mistakes": [
+        "❌ I will to visit you. ->  I will visit you. (الفعل بعد will يأتي بدون to)",
+        "❌ She won't comes. ->  She won't come."
+      ]
+    },
+    {
+      "id": 6,
+      "rule": "المستقبل بـ (Future - Going To)",
+      "structure": "Subject + am/is/are + going to + Verb (infinitive)",
+      "usage": [
+        "للخطط والنوايا المستقبلية المسبقة",
+        "للتنبؤات القائمة على دليل ملموس نراه الآن"
+      ],
+      "keywords": ["decided", "planned", "going to", "look at"],
+      "examples": [
+        {"sentence": "I am going to visit my mom next weekend.", "translation": "سأقوم بزيارة أمي في نهاية الأسبوع المقبل.", "explanation": "نية أو خطة تم اتخاذها قبل وقت الكلام."},
+        {"sentence": "Look at those dark clouds! It is going to rain.", "translation": "انظر لتلك الغيوم الداكنة! ستمطر.", "explanation": "تنبؤ مبني على دليل واضح نراه في الوقت الحالي."}
+      ],
+      "negative_form": "Subject + am/is/are + not + going to + Verb (infinitive)",
+      "question_form": "Am/Is/Are + Subject + going to + Verb (infinitive)?",
+      "common_mistakes": [
+        "❌ I going to buy a phone. ->  I am going to buy a phone.",
+        "❌ They are going to buying a car. ->  They are going to buy a car."
+      ]
+    },
+    {
+      "id": 7,
+      "rule": "المضارع التام (Present Perfect)",
+      "structure": "Subject + have/has + Past Participle (3rd form)",
+      "usage": [
+        "لأحداث في الماضي لها نتيجة أو أثر في الحاضر",
+        "للخبرات والتجارب الحياتية دون تحديد وقت معين",
+        "لأحداث بدأت في الماضي وما زالت مستمرة"
+      ],
+      "keywords": ["already", "yet", "just", "ever", "never", "since", "for"],
+      "examples": [
+        {"sentence": "I have been to London twice.", "translation": "لقد زرت لندن مرتين.", "explanation": "خبرة وتجربة حياتية دون تحديد وقت دقيق للزيارة."},
+        {"sentence": "She has already eaten lunch.", "translation": "لقد تناولت الغداء بالفعل.", "explanation": "حدث وقع للتو وله أثر (هي شبعانة الآن)."}
+      ],
+      "negative_form": "Subject + haven't/hasn't + Past Participle",
+      "question_form": "Have/Has + Subject + Past Participle?",
+      "common_mistakes": [
+        "❌ I have seen him yesterday. ->  I saw him yesterday. (لا يصح تحديد وقت ماضي مع المضارع التام)",
+        "❌ She has went to school. ->  She has gone to school."
+      ]
+    }
+  ]
+}

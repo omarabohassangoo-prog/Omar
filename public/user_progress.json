@@ -1,0 +1,23 @@
+{
+  "user_id": "user_demo_123",
+  "joined_date": "2026-01-15",
+  "completed_chapters": [1],
+  "current_chapter": 2,
+  "completed_rules": [1, 2],
+  "learned_words": ["morning", "routine", "wake", "drink", "water"],
+  "quiz_scores": {
+    "quiz_1": 85,
+    "quiz_2": 90
+  },
+  "streak_days": 5,
+  "last_active": "2026-07-19",
+  "total_hours": 12.5,
+  "achievements": ["first_step", "five_streak"],
+  "level": 2,
+  "xp": 350,
+  "next_level_xp": 1000,
+  "total_xp": 1350,
+  "badges_earned": 2,
+  "last_lesson_date": "2026-07-19",
+  "daily_streak": 5
+}

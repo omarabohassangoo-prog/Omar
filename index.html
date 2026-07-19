@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ar" dir="rtl" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="تطبيق تعلم الإنجليزية التفاعلي FluentWay" />
+    <meta property="og:title" content="أورا التعليمية · Aura Learn" />
+    <meta property="og:description" content="تطبيق تعلم الإنجليزية التفاعلي" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ar_AR" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="أورا التعليمية · Aura Learn" />
+    <meta name="twitter:description" content="تطبيق تعلم الإنجليزية التفاعلي" />
+    <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXX" />
+    <link rel="manifest" href="/manifest.json" />
+    <title>أورا التعليمية · Aura Learn</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').then((registration) => {
+            console.log('SW registered: ', registration);
+          }).catch((registrationError) => {
+            console.log('SW registration failed: ', registrationError);
+          });
+        });
+      }
+    </script>
+  </head>
+  <body class="min-h-screen bg-slate-950 text-slate-100 transition-colors duration-300 font-sans">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

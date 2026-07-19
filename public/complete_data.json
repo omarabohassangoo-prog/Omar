@@ -1,0 +1,177 @@
+{
+  "title": "الموسوعة الشاملة - جميع الكلمات مع الرموز الصوتية",
+  "title_en": "Complete Dictionary - All Words with IPA",
+  "version": "2.0",
+  "total_words": 15,
+  "words": [
+    {
+      "word": "wake",
+      "ipa": "/weɪk/",
+      "ar": "يستيقظ",
+      "type": "verb",
+      "example": "I wake up at 6 AM.",
+      "example_ar": "أستيقظ الساعة 6 صباحاً.",
+      "source": ["story", "vocabulary"]
+    },
+    {
+      "word": "drink",
+      "ipa": "/drɪŋk/",
+      "ar": "يشرب",
+      "type": "verb",
+      "example": "I drink a glass of water.",
+      "example_ar": "أشرب كوباً من الماء.",
+      "source": ["story", "vocabulary"]
+    },
+    {
+      "word": "water",
+      "ipa": "/ˈwɔːtər/",
+      "ar": "ماء",
+      "type": "noun",
+      "example": "Drink water.",
+      "example_ar": "اشرب الماء.",
+      "source": ["story", "vocabulary"]
+    },
+    {
+      "word": "go",
+      "ipa": "/ɡəʊ/",
+      "ar": "يذهب",
+      "type": "verb",
+      "example": "I go to the bathroom.",
+      "example_ar": "أذهب إلى الحمام.",
+      "source": ["story", "vocabulary"]
+    },
+    {
+      "word": "brush",
+      "ipa": "/brʌʃ/",
+      "ar": "يفرش",
+      "type": "verb",
+      "example": "I brush my teeth.",
+      "example_ar": "أفرش أسناني.",
+      "source": ["story", "vocabulary"]
+    },
+    {
+      "word": "teeth",
+      "ipa": "/tiːθ/",
+      "ar": "أسنان",
+      "type": "noun (plural)",
+      "example": "I brush my teeth.",
+      "example_ar": "أفرش أسناني.",
+      "source": ["story", "vocabulary"]
+    },
+    {
+      "word": "shower",
+      "ipa": "/ˈʃaʊər/",
+      "ar": "دش / استحمام",
+      "type": "noun",
+      "example": "I take a shower.",
+      "example_ar": "أستحم.",
+      "source": ["story", "vocabulary"]
+    },
+    {
+      "word": "coffee",
+      "ipa": "/ˈkɒfi/",
+      "ar": "قهوة",
+      "type": "noun",
+      "example": "I drink coffee.",
+      "example_ar": "أشرب القهوة.",
+      "source": ["story", "vocabulary"]
+    },
+    {
+      "word": "family",
+      "ipa": "/ˈfæməli/",
+      "ar": "عائلة",
+      "type": "noun",
+      "example": "I have breakfast with my family.",
+      "example_ar": "أتناول الفطور مع عائلتي.",
+      "source": ["story", "vocabulary"]
+    },
+    {
+      "word": "school",
+      "ipa": "/skuːl/",
+      "ar": "مدرسة",
+      "type": "noun",
+      "example": "I work in a school.",
+      "example_ar": "أعمل في مدرسة.",
+      "source": ["story", "vocabulary"]
+    },
+    {
+      "word": "teach",
+      "ipa": "/tiːtʃ/",
+      "ar": "يدرس (يُعلّم)",
+      "type": "verb",
+      "example": "I teach English.",
+      "example_ar": "أدرس اللغة الإنجليزية.",
+      "source": ["story", "vocabulary"]
+    },
+    {
+      "word": "learn",
+      "ipa": "/lɜːn/",
+      "ar": "يتعلم",
+      "type": "verb",
+      "example": "I want to learn English.",
+      "example_ar": "أريد أن أتعلم الإنجليزية.",
+      "source": ["story", "vocabulary"]
+    },
+    {
+      "word": "friend",
+      "ipa": "/frend/",
+      "ar": "صديق",
+      "type": "noun",
+      "example": "She visits her friend.",
+      "example_ar": "هي تزور صديقتها.",
+      "source": ["story", "vocabulary"]
+    },
+    {
+      "word": "house",
+      "ipa": "/haʊs/",
+      "ar": "منزل",
+      "type": "noun",
+      "example": "My house is big.",
+      "example_ar": "منزلي كبير.",
+      "source": ["story", "vocabulary"]
+    },
+    {
+      "word": "happy",
+      "ipa": "/ˈhæpi/",
+      "ar": "سعيد",
+      "type": "adjective",
+      "example": "I am happy.",
+      "example_ar": "أنا سعيد.",
+      "source": ["story", "vocabulary"]
+    }
+  ],
+  "phonetic_symbols": {
+    "vowels": {
+      "name": "أصوات العلة",
+      "name_en": "Vowel Sounds",
+      "symbols": [
+        { "symbol": "/iː/", "example": "see, sea, teeth", "description": "طويل مفتوح", "audio_example": "see" },
+        { "symbol": "/ɪ/", "example": "sit, ship, drink", "description": "قصير مفتوح", "audio_example": "sit" },
+        { "symbol": "/e/", "example": "bed, red, get", "description": "متوسط مفتوح", "audio_example": "bed" },
+        { "symbol": "/æ/", "example": "cat, hat, family", "description": "مفتوح قصير", "audio_example": "cat" },
+        { "symbol": "/ɑː/", "example": "car, far, glass", "description": "طويل مفتوح خلفي", "audio_example": "car" }
+      ]
+    },
+    "consonants": {
+      "name": "الأصوات الساكنة",
+      "name_en": "Consonant Sounds",
+      "symbols": [
+        { "symbol": "/p/", "example": "pen, stop, plan", "description": "انفجاري مهموس", "audio_example": "pen" },
+        { "symbol": "/b/", "example": "big, job, brush", "description": "انفجاري مجهور", "audio_example": "big" },
+        { "symbol": "/t/", "example": "tea, stop, water", "description": "انفجاري مهموس", "audio_example": "tea" },
+        { "symbol": "/d/", "example": "dog, did, drink", "description": "انفجاري مجهور", "audio_example": "dog" },
+        { "symbol": "/k/", "example": "cat, kick, coffee", "description": "انفجاري مهموس طبقي", "audio_example": "cat" },
+        { "symbol": "/g/", "example": "go, get, glass", "description": "انفجاري مجهور طبقي", "audio_example": "go" }
+      ]
+    },
+    "diphthongs": {
+      "name": "الأصوات المزدوجة",
+      "name_en": "Diphthong Sounds",
+      "symbols": [
+        { "symbol": "/eɪ/", "example": "say, way, wake", "description": "من /e/ إلى /ɪ/", "audio_example": "say" },
+        { "symbol": "/aɪ/", "example": "my, time, try", "description": "من /a/ إلى /ɪ/", "audio_example": "my" },
+        { "symbol": "/ɔɪ/", "example": "boy, toy, join", "description": "من /ɔ/ إلى /ɪ/", "audio_example": "boy" }
+      ]
+    }
+  }
+}

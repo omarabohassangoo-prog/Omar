@@ -1,0 +1,72 @@
+{
+  "quizzes": [
+    {
+      "id": "quiz_vocabulary_1",
+      "type": "vocabulary",
+      "chapter_reference": 1,
+      "title": "اختبار المفردات: الروتين الصباحي",
+      "title_en": "Vocabulary Quiz: Morning Routine",
+      "difficulty": "easy",
+      "time_limit": 300,
+      "passing_score": 70,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "multiple_choice",
+          "question": "What is the meaning of 'Wake up'?",
+          "question_ar": "ما معنى 'Wake up'؟",
+          "options": ["يستيقظ", "ينام", "يمشي", "يأكل"],
+          "correct_answer": 0,
+          "explanation": "'Wake up' means to stop sleeping and open your eyes.",
+          "explanation_ar": "'Wake up' تعني التوقف عن النوم وفتح العينين."
+        },
+        {
+          "id": "q2",
+          "type": "true_false",
+          "question": "'Routine' means something you do regularly.",
+          "question_ar": "كلمة 'Routine' تعني شيئاً تفعله بانتظام.",
+          "options": ["True", "False"],
+          "correct_answer": 0,
+          "explanation": "A routine is a sequence of actions regularly followed.",
+          "explanation_ar": "الروتين هو سلسلة من الإجراءات المتبعة بانتظام."
+        },
+        {
+          "id": "q3",
+          "type": "fill_blank",
+          "question": "The first thing I do is _____ a glass of water.",
+          "question_ar": "أول شيء أفعله هو _____ كوب من الماء.",
+          "correct_answer": "drink",
+          "explanation": "'drink' is the correct verb for consuming water.",
+          "explanation_ar": "'drink' هو الفعل الصحيح لتناول الماء."
+        }
+      ]
+    },
+    {
+      "id": "quiz_grammar_1",
+      "type": "grammar",
+      "chapter_reference": 1,
+      "title": "اختبار القواعد: المضارع البسيط",
+      "title_en": "Grammar Quiz: Present Simple",
+      "difficulty": "easy",
+      "time_limit": 300,
+      "passing_score": 70,
+      "questions": [
+        {
+          "id": "q4",
+          "type": "multiple_choice",
+          "question": "Which sentence is correct?",
+          "question_ar": "أي جملة هي الصحيحة؟",
+          "options": [
+            "He wake up at 6 AM.",
+            "He wakes up at 6 AM.",
+            "He waking up at 6 AM.",
+            "He is wake up at 6 AM."
+          ],
+          "correct_answer": 1,
+          "explanation": "In Present Simple, we add 's' to the verb for singular third-person (He/She/It).",
+          "explanation_ar": "في المضارع البسيط، نضيف حرف 's' للفعل مع المفرد الغائب (He/She/It)."
+        }
+      ]
+    }
+  ]
+}

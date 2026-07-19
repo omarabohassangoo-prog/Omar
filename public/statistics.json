@@ -1,0 +1,19 @@
+{
+  "total_users": 15420,
+  "total_lessons_completed": 87400,
+  "average_score": 84.5,
+  "popular_chapters": [
+    { "chapter": 1, "views": 12500 },
+    { "chapter": 2, "views": 9800 },
+    { "chapter": 3, "views": 7600 }
+  ],
+  "daily_active_users": 1250,
+  "weekly_active_users": 5800,
+  "monthly_active_users": 12300,
+  "total_minutes_learned": 435000,
+  "average_learning_time": 28.2,
+  "most_learned_words": ["routine", "wake up", "grammar", "phonetics", "speak"],
+  "most_visited_section": "story",
+  "device_stats": { "mobile": 72, "desktop": 23, "tablet": 5 },
+  "language_stats": { "ar": 94, "en": 5, "other": 1 }
+}

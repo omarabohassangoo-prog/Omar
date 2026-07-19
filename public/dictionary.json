@@ -1,0 +1,53 @@
+{
+  "dictionary": [
+    {
+      "word": "routine",
+      "ipa": "/ruːˈtiːn/",
+      "ar": "روتين / عمل معتاد",
+      "type": "noun",
+      "synonyms": ["habit", "custom", "practice"],
+      "antonyms": ["disorder", "irregularity"],
+      "sentences": [
+        { "en": "My morning routine is simple.", "ar": "روتيني الصباحي بسيط." },
+        { "en": "I need to break my daily routine.", "ar": "أنا بحاجة لكسر روتيني اليومي." }
+      ],
+      "level": "a2"
+    },
+    {
+      "word": "wake",
+      "ipa": "/weɪk/",
+      "ar": "يستيقظ / يوقظ",
+      "type": "verb",
+      "synonyms": ["awake", "arouse"],
+      "antonyms": ["sleep"],
+      "sentences": [
+        { "en": "I wake up at 6 AM.", "ar": "أستيقظ في الساعة السادسة صباحاً." }
+      ],
+      "level": "a1"
+    },
+    {
+      "word": "grammar",
+      "ipa": "/ˈɡræm.ər/",
+      "ar": "قواعد اللغة",
+      "type": "noun",
+      "synonyms": ["syntax", "linguistics"],
+      "antonyms": [],
+      "sentences": [
+        { "en": "English grammar is easy to learn.", "ar": "قواعد اللغة الإنجليزية سهلة التعلم." }
+      ],
+      "level": "a2"
+    },
+    {
+      "word": "phonetics",
+      "ipa": "/fəˈnet.ɪks/",
+      "ar": "علم الصوتيات",
+      "type": "noun",
+      "synonyms": ["pronunciation", "phonology"],
+      "antonyms": [],
+      "sentences": [
+        { "en": "Phonetics helps us pronounce words correctly.", "ar": "علم الصوتيات يساعدنا على نطق الكلمات بشكل صحيح." }
+      ],
+      "level": "b1"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "ad_slots": {
+    "header_banner": {
+      "id": "ca-pub-test-header",
+      "type": "banner",
+      "size": "728x90",
+      "position": "header",
+      "responsive": true,
+      "frequency": 1,
+      "priority": "high"
+    },
+    "sidebar_square": {
+      "id": "ca-pub-test-sidebar",
+      "type": "native",
+      "size": "300x250",
+      "position": "sidebar",
+      "responsive": true,
+      "frequency": 2,
+      "priority": "medium"
+    },
+    "footer_banner": {
+      "id": "ca-pub-test-footer",
+      "type": "banner",
+      "size": "468x60",
+      "position": "footer",
+      "responsive": true,
+      "frequency": 1,
+      "priority": "low"
+    }
+  },
+  "display_settings": {
+    "delay_between_ads": 30,
+    "max_ads_per_session": 5,
+    "auto_refresh": true,
+    "lazy_load": true,
+    "responsive": true,
+    "load_on_scroll": false,
+    "placeholder_color": "#1a1a24"
+  },
+  "blocked_categories": ["gambling", "adult"],
+  "ad_units": {
+    "enabled": true,
+    "test_mode": true,
+    "publisher_id": "pub-9988776655443322"
+  }
+}

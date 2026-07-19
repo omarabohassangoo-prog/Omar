@@ -1,0 +1,55 @@
+{
+  "achievements": [
+    {
+      "id": "first_step",
+      "name": "الخطوة الأولى",
+      "name_en": "First Step",
+      "description": "أكملت الفصل الأول من القصة بنجاح.",
+      "description_en": "Successfully completed the first chapter of the story.",
+      "icon": "BookOpen",
+      "requirement": {
+        "type": "chapters_completed",
+        "count": 1
+      },
+      "reward": {
+        "xp": 100,
+        "badge": "bronze"
+      },
+      "unlocked": true
+    },
+    {
+      "id": "five_streak",
+      "name": "عزيمة لا تلين",
+      "name_en": "Unstoppable Streak",
+      "description": "حافظت على سلسلة تعلم دامت 5 أيام متتالية.",
+      "description_en": "Maintained a learning streak of 5 consecutive days.",
+      "icon": "Flame",
+      "requirement": {
+        "type": "streak_days",
+        "count": 5
+      },
+      "reward": {
+        "xp": 250,
+        "badge": "silver"
+      },
+      "unlocked": true
+    },
+    {
+      "id": "word_master_50",
+      "name": "سيد الكلمات",
+      "name_en": "Word Master",
+      "description": "تعلمت وحفظت 50 مفردة جديدة.",
+      "description_en": "Learned and saved 50 new vocabulary words.",
+      "icon": "Award",
+      "requirement": {
+        "type": "words_learned",
+        "count": 50
+      },
+      "reward": {
+        "xp": 500,
+        "badge": "gold"
+      },
+      "unlocked": false
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "title": "المفردات الشاملة للغة الإنجليزية",
+  "title_en": "Complete English Vocabulary",
+  "total_items": 450,
+  "sections": {
+    "pronouns": {
+      "name": "الضمائر",
+      "name_en": "Pronouns",
+      "items": [
+        {
+          "type": "ضمائر الفاعل (Subject Pronouns)",
+          "words": [
+            {"en": "I", "ar": "أنا", "ipa": "/aɪ/", "example": "I am a teacher.", "example_ar": "أنا معلم."},
+            {"en": "you", "ar": "أنت / أنتم", "ipa": "/juː/", "example": "You are my friend.", "example_ar": "أنت صديقي."},
+            {"en": "he", "ar": "هو", "ipa": "/hiː/", "example": "He works hard.", "example_ar": "هو يعمل بجد."},
+            {"en": "she", "ar": "هي", "ipa": "/ʃiː/", "example": "She sings beautifully.", "example_ar": "هي تغني بشكل جميل."},
+            {"en": "it", "ar": "هو / هي (لغير العاقل)", "ipa": "/ɪt/", "example": "It is raining.", "example_ar": "إنها تمطر."},
+            {"en": "we", "ar": "نحن", "ipa": "/wiː/", "example": "We live here.", "example_ar": "نحن نعيش هنا."},
+            {"en": "they", "ar": "هم / هن", "ipa": "/ðeɪ/", "example": "They are students.", "example_ar": "هم طلاب."}
+          ]
+        },
+        {
+          "type": "ضمائر المفعول به (Object Pronouns)",
+          "words": [
+            {"en": "me", "ar": "ني / لي", "ipa": "/miː/", "example": "She called me.", "example_ar": "هي اتصلت بي."},
+            {"en": "him", "ar": "ه / له", "ipa": "/hɪm/", "example": "I gave him a book.", "example_ar": "أعطيته كتاباً."},
+            {"en": "her", "ar": "ها / لها", "ipa": "/hɜːr/", "example": "I know her.", "example_ar": "أعرفها."},
+            {"en": "us", "ar": "نا / لنا", "ipa": "/ʌs/", "example": "She told us a story.", "example_ar": "روت لنا قصة."},
+            {"en": "them", "ar": "هم / لهم", "ipa": "/ðem/", "example": "I saw them.", "example_ar": "رأيتهم."}
+          ]
+        }
+      ]
+    },
+    "prepositions": {
+      "name": "حروف الجر",
+      "name_en": "Prepositions",
+      "items": [
+        {
+          "type": "حروف الجر الشائعة",
+          "words": [
+            {"en": "in", "ar": "في", "ipa": "/ɪn/", "example": "I live in Cairo.", "example_ar": "أعيش في القاهرة."},
+            {"en": "on", "ar": "على", "ipa": "/ɒn/", "example": "The book is on the table.", "example_ar": "الكتاب على الطاولة."},
+            {"en": "at", "ar": "في / عند", "ipa": "/æt/", "example": "Meet me at 5 PM.", "example_ar": "قابلني الساعة 5 مساءً."},
+            {"en": "to", "ar": "إلى", "ipa": "/tuː/", "example": "I go to school.", "example_ar": "أذهب إلى المدرسة."},
+            {"en": "with", "ar": "مع", "ipa": "/wɪð/", "example": "I went with my friend.", "example_ar": "ذهبت مع صديقي."},
+            {"en": "under", "ar": "تحت", "ipa": "/ˈʌndər/", "example": "The cat is under the bed.", "example_ar": "القطة تحت السرير."},
+            {"en": "behind", "ar": "خلف", "ipa": "/bɪˈhaɪnd/", "example": "The school is behind the mosque.", "example_ar": "المدرسة خلف المسجد."}
+          ]
+        }
+      ]
+    },
+    "verbs": {
+      "name": "الأفعال الأساسية",
+      "name_en": "Essential Verbs",
+      "items": [
+        {
+          "type": "أفعال يومية",
+          "words": [
+            {"en": "wake", "ar": "يستيقظ", "ipa": "/weɪk/", "example": "I wake up early.", "example_ar": "أستيقظ مبكراً."},
+            {"en": "drink", "ar": "يشرب", "ipa": "/drɪŋk/", "example": "I drink water.", "example_ar": "أشرب الماء."},
+            {"en": "eat", "ar": "يأكل", "ipa": "/iːt/", "example": "I eat breakfast.", "example_ar": "أتناول وجبة الفطور."},
+            {"en": "go", "ar": "يذهب", "ipa": "/ɡəʊ/", "example": "I go to work.", "example_ar": "أذهب إلى العمل."},
+            {"en": "read", "ar": "يقرأ", "ipa": "/riːd/", "example": "I read stories.", "example_ar": "أقرأ القصص."},
+            {"en": "learn", "ar": "يتعلم", "ipa": "/lɜːn/", "example": "I want to learn English.", "example_ar": "أريد أن أتعلم اللغة الإنجليزية."}
+          ]
+        }
+      ]
+    }
+  }
+}

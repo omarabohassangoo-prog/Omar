@@ -1,0 +1,28 @@
+{
+  "notifications": [
+    {
+      "id": "notif_1",
+      "type": "streak_alert",
+      "title": "سلسلة تعلم متواصلة! 🔥",
+      "title_en": "Learning Streak! 🔥",
+      "message": "حافظ على حماسك اليومي! أكمل درساً واحداً اليوم للحفاظ على سلسلة الـ 5 أيام.",
+      "icon": "Flame",
+      "date": "2026-07-19T08:00:00Z",
+      "read": false,
+      "action_url": "#dashboard",
+      "priority": "high"
+    },
+    {
+      "id": "notif_2",
+      "type": "achievement",
+      "title": "تم فتح إنجاز جديد! 🏆",
+      "title_en": "Achievement Unlocked! 🏆",
+      "message": "تهانينا! لقد حصلت على وسام الفضة ونقاط خبرة إضافية لإتمام سلسلة 5 أيام متتالية.",
+      "icon": "Award",
+      "date": "2026-07-18T19:30:00Z",
+      "read": true,
+      "action_url": "#profile",
+      "priority": "medium"
+    }
+  ]
+}

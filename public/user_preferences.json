@@ -1,0 +1,21 @@
+{
+  "user_id": "user_demo_123",
+  "theme": "dark",
+  "audio_speed": 1.0,
+  "daily_goal": 20,
+  "difficulty_level": "beginner",
+  "notifications": {
+    "daily_reminder": true,
+    "streak_alert": true,
+    "achievement_unlock": true,
+    "new_content": false
+  },
+  "preferred_categories": ["story", "vocabulary", "grammar"],
+  "font_size": "medium",
+  "auto_play_audio": false,
+  "show_translation": true,
+  "privacy": {
+    "share_progress": true,
+    "analytics": true
+  }
+}

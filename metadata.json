@@ -1,0 +1,6 @@
+{
+  "name": "تعلم الإنجليزية - Learn English",
+  "description": "تطبيق تفاعلي متكامل لتعلم اللغة الإنجليزية يحتوي على قصص تفاعلية، قواعد، مفردات، وتدريب صوتيات مع معلم ذكي مدعوم بالذكاء الاصطناعي.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

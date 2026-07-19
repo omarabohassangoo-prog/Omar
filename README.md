@@ -1,11 +1,31 @@
-<div align="center">
+# تطبيق تعلم الإنجليزية - FluentWay 🚀
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+FluentWay هو تطبيق تفاعلي لتعلم اللغة الإنجليزية مبني باستخدام React 19 و Tailwind CSS.
+يحتوي على العديد من الميزات المتطورة من بينها مدرس ذكاء اصطناعي، ومحرك صوتيات، واختبارات تفاعلية.
 
-  <h1>Built with AI Studio</h2>
+## الميزات ✨
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+- مدرس ذكاء اصطناعي (Aura) مبني على Gemini 3.5.
+- قصص ومحادثات ومفردات شاملة.
+- محرك صوتي متقدم مع دعم SpeechSynthesis و Google Translate TTS.
+- لوحة تحكم تتبع تقدم المستخدم والمستويات والنقاط.
+- دعم كامل للتطبيق كـ PWA للعمل دون اتصال.
+- تحسينات متقدمة للـ SEO والإعلانات.
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+## التثبيت ⚙️
 
-</div>
+1. استنساخ المستودع
+2. تثبيت الحزم: `npm install`
+3. قم بإضافة المفتاح في `.env.local`: `GEMINI_API_KEY=YOUR_KEY`
+4. تشغيل خادم التطوير: `npm run dev`
+
+## الهيكل 📁
+
+- `public/`: ملفات البيانات `json` و `manifest.json` وغيرها.
+- `src/components/`: مكونات React للواجهة والمحرك والإعلانات.
+- `src/core/`: محركات النظام الأساسية (الصوت، وغيرها).
+- `src/loaders/`: محملات البيانات والمكونات المرئية للمقاطع.
+- `server.ts`: خادم الـ Backend لدعم محرك الـ AI وإدارة الـ API.
+
+## الترخيص 📝
+هذا المشروع مفتوح المصدر ومتاح للجميع.
