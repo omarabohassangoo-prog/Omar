@@ -108,15 +108,15 @@ app.post('/api/chat', chatLimiter, async (req, res) => {
   // Offline/demo fallback
   if (!ai) {
     return res.json({
-      reply: "Hello! I am Aura, your offline AI Tutor. To activate my full potential, please configure your GEMINI_API_KEY in Settings > Secrets.",
-      translation: "مرحباً! أنا أورا، معلمك الآلي في وضع عدم الاتصال. لتفعيل كامل قدراتي، يرجى تهيئة مفتاح GEMINI_API_KEY في Settings.",
+      reply: "مرحباً! أنا Aura، معلمك الآلي في وضع عدم الاتصال. لتفعيل كامل القدرات، اضف مفتاح GEMINI_API_KEY في إعدادات البيئة.",
+      translation: "Hello! I'm Aura, your offline AI Tutor. To enable full features, set GEMINI_API_KEY in your environment.",
       correction: "You are doing great! Keep practicing.",
-      tips: "Always remember to capitalize the first letter of a sentence and end it with a punctuation mark."
+      tips: "تذكّر دائمًا كتابة الحرف الأول من الجملة بحرف كبير وانتهاء الجملة بعلامة ترقيم."
     });
   }
 
   try {
-    const systemInstruction = `You are a friendly, patient, and expert English Language Tutor named 'Aura'.\nYour goal is to help the user learn and practice English conversation.\nAlways be encouraging and speak in clear, simple English suited for learners.\n\nYou must analyze the user's message for any grammatical, spelling, punctuation, or phrasing mistakes.\nIf you find mistakes, explain them politely and provide the corrected version in the 'correction' field. If the user's message is correct, specify 'Excellent! Perfect grammar.'\nProvide a natural Arabic translation of your reply in the 'translation' field to help them learn.\nProvide a short, helpful learning tip in the 'tips' field (e.g., explaining a preposition, a phrasal verb, or a common idiom).`;
+    const systemInstruction = `You are a friendly, patient, and expert English Language Tutor named 'Aura'.\nYour goal is to help the user learn and practice English conversation.\nAlways be encouraging and provide corrections, translations, and tips when appropriate.`;
 
     // Map conversation history to Gemini contents format
     const contents = messages.map((m: any) => ({ role: m.sender === 'user' ? 'user' : 'model', parts: [{ text: m.text }] }));
@@ -147,9 +147,45 @@ app.post('/api/chat', chatLimiter, async (req, res) => {
     // Execute with retry + timeout
     const response = await retry(() => withTimeout(call(), 15_000, 'Gemini request timed out'), 2, 500);
 
-    const resultText = (response as any).text;
+    // Flexible parsing of SDK response shapes
+    const rawResponse: any = response as any;
+    let resultText: string | undefined = undefined;
+
+    // Common fields
+    if (typeof rawResponse?.text === 'string') resultText = rawResponse.text;
+    if (!resultText && typeof rawResponse?.output_text === 'string') resultText = rawResponse.output_text;
+
+    // Nested output candidates/content
+    if (!resultText && Array.isArray(rawResponse?.output) && rawResponse.output.length > 0) {
+      try {
+        const out0 = rawResponse.output[0];
+        if (out0?.content && Array.isArray(out0.content) && out0.content.length > 0) {
+          const part = out0.content[0];
+          if (typeof part?.text === 'string') resultText = part.text;
+          else resultText = JSON.stringify(out0.content);
+        }
+      } catch (e) {
+        // ignore parsing error here and continue
+      }
+    }
+
+    if (!resultText && Array.isArray(rawResponse?.candidates) && rawResponse.candidates.length > 0) {
+      const cand = rawResponse.candidates[0];
+      if (typeof cand?.content === 'string') resultText = cand.content;
+      else if (cand?.content) resultText = JSON.stringify(cand.content);
+    }
+
+    // As a last resort, stringify the whole response (safe fallback)
+    if (!resultText) {
+      try {
+        resultText = JSON.stringify(rawResponse);
+      } catch (e) {
+        resultText = String(rawResponse);
+      }
+    }
+
     if (!resultText || typeof resultText !== 'string') {
-      logger.error({ response }, 'Gemini returned empty or non-string response');
+      logger.error({ rawResponse }, 'Gemini returned empty or unexpected response shape');
       return res.status(502).json({ error: 'Upstream service returned an unexpected response' });
     }
 
@@ -157,18 +193,24 @@ app.post('/api/chat', chatLimiter, async (req, res) => {
     try {
       parsedResult = JSON.parse(resultText);
     } catch (e) {
-      logger.error({ err: e, resultText }, 'Failed to parse Gemini JSON response');
-      return res.status(502).json({ error: 'Failed to parse response from upstream AI service' });
+      // If not JSON, attempt best-effort extraction: treat the entire resultText as reply
+      logger.warn({ resultText }, 'Gemini response is not JSON; using best-effort fallback');
+      parsedResult = { reply: resultText, translation: '', correction: '', tips: '' };
     }
 
-    // Basic shape validation
-    if (!parsedResult.reply || !parsedResult.translation) {
-      logger.warn({ parsedResult }, 'Gemini response missing expected fields');
+    // Normalize fields: ensure reply and translation exist
+    const reply = parsedResult?.reply || parsedResult?.output_text || parsedResult?.text || String(parsedResult);
+    const translation = parsedResult?.translation || '';
+    const correction = parsedResult?.correction || '';
+    const tips = parsedResult?.tips || '';
+
+    if (!reply) {
+      logger.warn({ parsedResult }, 'Gemini response missing expected reply field');
       return res.status(502).json({ error: 'Incomplete response from AI service' });
     }
 
     // Return only structured fields (avoid leaking internals)
-    return res.json({ reply: parsedResult.reply, translation: parsedResult.translation, correction: parsedResult.correction || '', tips: parsedResult.tips || '' });
+    return res.json({ reply, translation, correction, tips });
   } catch (error: any) {
     logger.error({ err: error }, 'Gemini API Error');
     return res.status(500).json({ error: 'Failed to connect to the AI Tutor. Please try again later.' });
