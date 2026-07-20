@@ -57,7 +57,9 @@ export const AdsManager: React.FC<AdsManagerProps> = ({ position, className = ''
       try {
         const adsbygoogle = (window as any).adsbygoogle || [];
         // Ensure the slot isn't already filled
-        adsbygoogle.push({});
+        if (adsbygoogle && typeof adsbygoogle.push === 'function') {
+          adsbygoogle.push({});
+        }
       } catch (e) {
         console.warn('Google AdSense integration warning:', e);
       }

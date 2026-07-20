@@ -51,7 +51,7 @@ const AudioEngine: AudioEngineType = {
   state: { isSpeaking: false, currentText: '', queue: [], isPaused: false, isInitialized: false },
   
   _globalAudio: null,
-  _speechSynth: typeof window !== 'undefined' ? window.speechSynthesis : null,
+  _speechSynth: typeof window !== 'undefined' && window.speechSynthesis ? window.speechSynthesis : null,
   _currentUtterance: null,
 
   init: function(): boolean {

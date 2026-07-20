@@ -98,8 +98,10 @@ export interface PhoneticData {
 }
 
 // ===== أنواع المستخدم =====
+export type UserRole = 'visitor' | 'admin';
 export interface UserProgress {
   user_id: string;
+  role?: UserRole;
   joined_date: string;
   completed_chapters: number[];
   current_chapter: number;
@@ -113,6 +115,10 @@ export interface UserProgress {
   level: number;
   xp: number;
   next_level_xp: number;
+  badges_earned?: number;
+  total_xp?: number;
+  daily_streak?: number;
+  last_lesson_date?: string;
 }
 
 export interface UserPreferences {

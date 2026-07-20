@@ -179,7 +179,7 @@ const StoryLoader: StoryLoaderType = {
       }
       
       html += '<div class="search-wrapper">';
-      html += `<input class="search-box" id="storySearch" placeholder="🔍 ابحث في القصة..." value="${this._escapeHtml(this.searchQuery)}" />`;
+      html += `<input type="search" class="search-box" id="storySearch" placeholder="🔍 ابحث في القصة..." value="${this._escapeHtml(this.searchQuery)}" />`;
       html += '<span class="result-count" id="storyResultCount"></span>';
       html += `<button class="play-btn" data-text="${this._escapeHtml(allSentences)}" onclick="if(window.speakText) window.speakText('${this._escapeHtml(allSentences)}');" style="background:none;border:none;color:var(--gold);font-size:1em;cursor:pointer;padding:6px 16px;border-radius:30px;border:1px solid var(--border-color);">🔊 الفصل كاملاً</button>`;
       html += '</div>';

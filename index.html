@@ -3,22 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="تطبيق تعلم الإنجليزية التفاعلي FluentWay" />
+    <meta name="description" content="أورا التعليمية (Aura Learn) - منصة تفاعلية متقدمة لتعلم اللغة الإنجليزية باستخدام الذكاء الاصطناعي. تحسين النطق، تعلم القواعد، ومفردات جديدة بسهولة." />
+    <meta name="keywords" content="تعلم الإنجليزية, الذكاء الاصطناعي, كورس إنجليزي, قواعد اللغة الإنجليزية, نطق الإنجليزية, كلمات إنجليزية, Aura Learn, أورا التعليمية" />
+    <meta name="author" content="أورا التعليمية" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f172a" />
+    
+    <link rel="canonical" href="https://fluentway.ai.studio/" />
+    
     <meta property="og:title" content="أورا التعليمية · Aura Learn" />
-    <meta property="og:description" content="تطبيق تعلم الإنجليزية التفاعلي" />
+    <meta property="og:description" content="أورا التعليمية (Aura Learn) - منصة تفاعلية متقدمة لتعلم اللغة الإنجليزية باستخدام الذكاء الاصطناعي." />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ar_AR" />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:url" content="https://fluentway.ai.studio/" />
+    <meta property="og:site_name" content="أورا التعليمية" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="أورا التعليمية · Aura Learn" />
-    <meta name="twitter:description" content="تطبيق تعلم الإنجليزية التفاعلي" />
-    <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXX" />
-    <link rel="manifest" href="/manifest.json" />
+    <meta name="twitter:description" content="أورا التعليمية (Aura Learn) - منصة تفاعلية متقدمة لتعلم اللغة الإنجليزية باستخدام الذكاء الاصطناعي." />
+    
+    <!-- <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXX" /> -->
+    <link rel="manifest" href="./manifest.json" />
     <title>أورا التعليمية · Aura Learn</title>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script>
+    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script> -->
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js').then((registration) => {
+          navigator.serviceWorker.register('./sw.js').then((registration) => {
             console.log('SW registered: ', registration);
           }).catch((registrationError) => {
             console.log('SW registration failed: ', registrationError);

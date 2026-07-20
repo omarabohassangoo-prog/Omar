@@ -9,15 +9,16 @@ import VocabularyLoader from './loaders/vocabulary-loader';
 import PhoneticsLoader from './loaders/phonetics-loader';
 import AudioEngine from './core/audio-engine';
 
-import { AdsManager, AdsSimulationDashboard } from './components/ads-manager';
+import { AdsManager } from './components/ads-manager';
 import Dashboard from './components/dashboard';
 import UserProfile from './components/user-profile';
 import SearchEngine from './components/search-engine';
 import AudioPlayer from './components/audio-player';
+import { AdminDashboard } from './components/admin-dashboard';
 
 import { 
   BookOpen, GraduationCap, LayoutDashboard, Search, 
-  User, Volume2, ShieldCheck, ArrowUp 
+  User, Volume2, ShieldCheck, ArrowUp, Lock
 } from 'lucide-react';
 import type { UserProgress, UserPreferences } from './types';
 
@@ -43,7 +44,9 @@ const LoaderWrapper: React.FC<{ loader: any; view: 'main' | 'detail' }> = ({ loa
 
 const App: React.FC = () => {
   // تتبع التبويب الحالي والواجهة النشطة
-  const [currentTab, setCurrentTab] = useState<'story' | 'grammar' | 'vocabulary' | 'phonetics' | 'dashboard' | 'search' | 'profile' | 'audio'>('dashboard');
+  const [currentTab, setCurrentTab] = useState<'story' | 'grammar' | 'vocabulary' | 'phonetics' | 'dashboard' | 'search' | 'profile' | 'audio' | 'admin'>('dashboard');
+  const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
+  const [adminPassword, setAdminPassword] = useState('');
   const [currentView, setCurrentView] = useState<'main' | 'detail'>('main');
   const [detailName, setDetailName] = useState<string | null>(null);
 
@@ -234,7 +237,8 @@ const App: React.FC = () => {
       'dashboard': '💻 لوحة التحكم',
       'search': '🔍 القاموس المساعد',
       'profile': '👤 ملف التعريف',
-      'audio': '🎛️ مشغل الصوت'
+      'audio': '🎛️ مشغل الصوت',
+      'admin': '⚙️ لوحة المدير'
     };
     return names[tab] || tab;
   };
@@ -387,6 +391,13 @@ const App: React.FC = () => {
         >
           <User className="w-4 h-4" /> ملف المستخدم
         </button>
+
+        <button
+          onClick={() => handleTabChange('admin')}
+          className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition flex items-center gap-2 cursor-pointer ${currentTab === 'admin' ? 'bg-gradient-to-r from-emerald-400 to-teal-500 text-slate-950 shadow-md' : 'text-slate-400 hover:text-white bg-transparent'}`}
+        >
+          <Lock className="w-4 h-4" /> لوحة المدير
+        </button>
       </nav>
 
       {/* 5. مساحة عرض المحتوى الديناميكية والشاشات النشطة */}
@@ -405,6 +416,49 @@ const App: React.FC = () => {
             onUpdateProgress={handleUpdateProgress} 
             showToast={showToast} 
           />
+        )}
+
+        {currentTab === 'admin' && (
+          isAdminLoggedIn ? (
+            <AdminDashboard onLogout={() => setIsAdminLoggedIn(false)} />
+          ) : (
+            <div className="flex flex-col items-center justify-center h-full p-6">
+              <Lock className="w-12 h-12 text-slate-500 mb-4" />
+              <h2 className="text-xl font-bold text-white mb-2">دخول المدير</h2>
+              <input
+                type="password"
+                value={adminPassword}
+                onChange={(e) => setAdminPassword(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD || 'admin123';
+                    if (adminPassword.trim() === ADMIN_PASSWORD) {
+                      setIsAdminLoggedIn(true);
+                      showToast('تم تسجيل دخول المدير بنجاح', 'success');
+                    } else {
+                      showToast('كلمة سر خاطئة', 'error');
+                    }
+                  }
+                }}
+                placeholder="كلمة السر"
+                className="px-4 py-2 rounded-xl bg-slate-800 text-white border border-slate-700 mb-4 focus:outline-none focus:border-emerald-500"
+              />
+              <button
+                onClick={() => {
+                  const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD || 'admin123';
+                  if (adminPassword.trim() === ADMIN_PASSWORD) {
+                    setIsAdminLoggedIn(true);
+                    showToast('تم تسجيل دخول المدير بنجاح', 'success');
+                  } else {
+                    showToast('كلمة سر خاطئة', 'error');
+                  }
+                }}
+                className="px-6 py-2 rounded-xl bg-emerald-500 text-slate-950 font-bold"
+              >
+                دخول
+              </button>
+            </div>
+          )
         )}
 
         {currentTab === 'profile' && (
@@ -429,11 +483,6 @@ const App: React.FC = () => {
 
       {/* إعلانات أسفل المحتوى */}
       <AdsManager position="footer" />
-
-      {/* لوحة تحليلات AdSense ومحاكاة الأرباح للعرض التقديمي المتميز */}
-      <div className="mt-8">
-        <AdsSimulationDashboard />
-      </div>
 
       {/* 6. نافذة الإشعار السريع الطافي (Toast notification) */}
       {toast && (

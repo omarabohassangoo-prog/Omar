@@ -2,148 +2,336 @@
   "grammar_rules": [
     {
       "id": 1,
-      "rule": "المضارع البسيط (Present Simple)",
-      "structure": "Subject + Verb (s/es with singular)",
-      "usage": [
-        "للحديث عن العادات والروتين اليومي",
-        "للحقائق العامة والعلمية الثابتة",
-        "للمواعيد المجدولة في المستقبل"
-      ],
-      "keywords": ["always", "usually", "often", "sometimes", "never", "every day"],
+      "title": "المضارع البسيط (Present Simple)",
+      "description": "يستخدم للتعبير عن العادات والحقائق الثابتة.",
+      "rule": "Subject + V1 (s/es for he/she/it)",
       "examples": [
-        {"sentence": "I wake up at 6 AM every day.", "translation": "أستيقظ الساعة 6 صباحاً كل يوم.", "explanation": "هذه عادة يومية وروتين متكرر."},
-        {"sentence": "The sun rises in the east.", "translation": "الشمس تشرق من الشرق.", "explanation": "هذه حقيقة علمية ثابتة."}
+        "I play tennis.",
+        "She likes apples."
       ],
-      "negative_form": "Subject + don't/doesn't + Verb (infinitive)",
-      "question_form": "Do/Does + Subject + Verb (infinitive)?",
-      "common_mistakes": [
-        "❌ He live in London. ->  He lives in London.",
-        "❌ She doesn't likes coffee. ->  She doesn't like coffee."
-      ]
+      "complexity": "مبتدئ",
+      "category": "الأزمنة"
     },
     {
       "id": 2,
-      "rule": "الماضي البسيط (Past Simple)",
-      "structure": "Subject + Verb-ed (or 2nd form of irregular verbs)",
-      "usage": [
-        "لأحداث بدأت وانتهت بالكامل في الماضي",
-        "لرواية القصص وسرد الأحداث المتتالية"
-      ],
-      "keywords": ["yesterday", "last week", "ago", "in 2010"],
+      "title": "المضارع المستمر (Present Continuous)",
+      "description": "يستخدم للتعبير عن أفعال تحدث الآن.",
+      "rule": "Subject + am/is/are + V-ing",
       "examples": [
-        {"sentence": "I visited my grandmother yesterday.", "translation": "زرت جدتي بالأمس.", "explanation": "حدث حدث وانتهى في وقت محدد بالماضي."},
-        {"sentence": "We bought a new car last week.", "translation": "اشترينا سيارة جديدة الأسبوع الماضي.", "explanation": "فعل شاذ (buy -> bought)."}
+        "I am studying.",
+        "They are playing."
       ],
-      "negative_form": "Subject + didn't + Verb (infinitive)",
-      "question_form": "Did + Subject + Verb (infinitive)?",
-      "common_mistakes": [
-        "❌ I didn't went there. ->  I didn't go there.",
-        "❌ She buyed a dress. ->  She bought a dress."
-      ]
+      "complexity": "مبتدئ",
+      "category": "الأزمنة"
     },
     {
       "id": 3,
-      "rule": "المضارع المستمر (Present Continuous)",
-      "structure": "Subject + am/is/are + Verb-ing",
-      "usage": [
-        "لأحداث تحدث الآن في لحظة التحدث",
-        "لمواقف مؤقتة تحدث في الوقت الحالي",
-        "لترتيبات مستقبلية مؤكدة"
-      ],
-      "keywords": ["now", "right now", "at the moment", "look", "listen"],
+      "title": "الماضي البسيط (Past Simple)",
+      "description": "يستخدم للتعبير عن أفعال انتهت في الماضي.",
+      "rule": "Subject + V2 (or -ed)",
       "examples": [
-        {"sentence": "I am drinking coffee right now.", "translation": "أنا أشرب القهوة الآن.", "explanation": "الحدث مستمر في هذه اللحظة بالذات."},
-        {"sentence": "They are traveling to Dubai next month.", "translation": "هم مسافرون إلى دبي الشهر القادم.", "explanation": "ترتيب مستقبلي مخطط له ومؤكد."}
+        "I visited London.",
+        "He went to school."
       ],
-      "negative_form": "Subject + am/is/are + not + Verb-ing",
-      "question_form": "Am/Is/Are + Subject + Verb-ing?",
-      "common_mistakes": [
-        "❌ I am knowing the answer. ->  I know the answer. (أفعال الحالة لا تأتي في المستمر)",
-        "❌ She is make dinner. ->  She is making dinner."
-      ]
+      "complexity": "مبتدئ",
+      "category": "الأزمنة"
     },
     {
       "id": 4,
-      "rule": "الماضي المستمر (Past Continuous)",
-      "structure": "Subject + was/were + Verb-ing",
-      "usage": [
-        "لحدث كان مستمراً في وقت معين في الماضي",
-        "لحدث طويل قطعه حدث آخر قصير في الماضي",
-        "لحدثين مستمرين في نفس الوقت"
-      ],
-      "keywords": ["while", "when", "as", "at that time"],
+      "title": "الماضي المستمر (Past Continuous)",
+      "description": "يستخدم للتعبير عن فعل كان مستمراً في الماضي عند وقوع فعل آخر.",
+      "rule": "Subject + was/were + V-ing",
       "examples": [
-        {"sentence": "I was cooking when you called.", "translation": "كنت أطبخ عندما اتصلت بي.", "explanation": "الطبخ كان حدثاً طويلاً مستمراً, قطعه الاتصال الهاتفي."},
-        {"sentence": "She was reading a book all evening.", "translation": "كانت تقرأ كتاباً طوال المساء.", "explanation": "الحدث استمر لفترة زمنية محددة بالماضي."}
+        "I was reading when he called."
       ],
-      "negative_form": "Subject + was/were + not + Verb-ing",
-      "question_form": "Was/Were + Subject + Verb-ing?",
-      "common_mistakes": [
-        "❌ We was playing football. ->  We were playing football.",
-        "❌ While I cooked, she was sleeping. ->  While I was cooking, she was sleeping."
-      ]
+      "complexity": "متوسط",
+      "category": "الأزمنة"
     },
     {
       "id": 5,
-      "rule": "المستقبل البسيط (Future - Will)",
-      "structure": "Subject + will + Verb (infinitive)",
-      "usage": [
-        "للقرارات السريعة واللحظية",
-        "للتوقعات المستقبلية بدون دليل",
-        "للعروض والوعود والتهديدات"
-      ],
-      "keywords": ["tomorrow", "next week", "soon", "I think", "maybe"],
+      "title": "المستقبل البسيط (Future Simple)",
+      "description": "يستخدم للتعبير عن قرارات وتوقعات مستقبلية.",
+      "rule": "Subject + will + V1",
       "examples": [
-        {"sentence": "I will help you with your homework.", "translation": "سأساعدك في واجبك المنزلي.", "explanation": "عرض فوري للمساعدة."},
-        {"sentence": "I think it will rain tomorrow.", "translation": "أعتقد أنها ستمطر غداً.", "explanation": "تنبؤ أو توقع شخصي بدون دليل ملموس."}
+        "I will help you.",
+        "It will rain tomorrow."
       ],
-      "negative_form": "Subject + will not (won't) + Verb (infinitive)",
-      "question_form": "Will + Subject + Verb (infinitive)?",
-      "common_mistakes": [
-        "❌ I will to visit you. ->  I will visit you. (الفعل بعد will يأتي بدون to)",
-        "❌ She won't comes. ->  She won't come."
-      ]
+      "complexity": "مبتدئ",
+      "category": "الأزمنة"
     },
     {
       "id": 6,
-      "rule": "المستقبل بـ (Future - Going To)",
-      "structure": "Subject + am/is/are + going to + Verb (infinitive)",
-      "usage": [
-        "للخطط والنوايا المستقبلية المسبقة",
-        "للتنبؤات القائمة على دليل ملموس نراه الآن"
-      ],
-      "keywords": ["decided", "planned", "going to", "look at"],
+      "title": "المضارع التام (Present Perfect)",
+      "description": "يعبر عن فعل حدث في الماضي وله أثر في الحاضر.",
+      "rule": "Subject + have/has + V3",
       "examples": [
-        {"sentence": "I am going to visit my mom next weekend.", "translation": "سأقوم بزيارة أمي في نهاية الأسبوع المقبل.", "explanation": "نية أو خطة تم اتخاذها قبل وقت الكلام."},
-        {"sentence": "Look at those dark clouds! It is going to rain.", "translation": "انظر لتلك الغيوم الداكنة! ستمطر.", "explanation": "تنبؤ مبني على دليل واضح نراه في الوقت الحالي."}
+        "I have finished my work.",
+        "She has visited Paris."
       ],
-      "negative_form": "Subject + am/is/are + not + going to + Verb (infinitive)",
-      "question_form": "Am/Is/Are + Subject + going to + Verb (infinitive)?",
-      "common_mistakes": [
-        "❌ I going to buy a phone. ->  I am going to buy a phone.",
-        "❌ They are going to buying a car. ->  They are going to buy a car."
-      ]
+      "complexity": "متوسط",
+      "category": "الأزمنة"
     },
     {
       "id": 7,
-      "rule": "المضارع التام (Present Perfect)",
-      "structure": "Subject + have/has + Past Participle (3rd form)",
-      "usage": [
-        "لأحداث في الماضي لها نتيجة أو أثر في الحاضر",
-        "للخبرات والتجارب الحياتية دون تحديد وقت معين",
-        "لأحداث بدأت في الماضي وما زالت مستمرة"
-      ],
-      "keywords": ["already", "yet", "just", "ever", "never", "since", "for"],
+      "title": "الماضي التام (Past Perfect)",
+      "description": "يعبر عن فعل حدث قبل فعل آخر في الماضي.",
+      "rule": "Subject + had + V3",
       "examples": [
-        {"sentence": "I have been to London twice.", "translation": "لقد زرت لندن مرتين.", "explanation": "خبرة وتجربة حياتية دون تحديد وقت دقيق للزيارة."},
-        {"sentence": "She has already eaten lunch.", "translation": "لقد تناولت الغداء بالفعل.", "explanation": "حدث وقع للتو وله أثر (هي شبعانة الآن)."}
+        "I had eaten before they arrived."
       ],
-      "negative_form": "Subject + haven't/hasn't + Past Participle",
-      "question_form": "Have/Has + Subject + Past Participle?",
-      "common_mistakes": [
-        "❌ I have seen him yesterday. ->  I saw him yesterday. (لا يصح تحديد وقت ماضي مع المضارع التام)",
-        "❌ She has went to school. ->  She has gone to school."
-      ]
+      "complexity": "متقدم",
+      "category": "الأزمنة"
+    },
+    {
+      "id": 8,
+      "title": "المضارع التام المستمر (Present Perfect Continuous)",
+      "description": "يعبر عن فعل بدأ في الماضي ومستمر حتى الآن.",
+      "rule": "Subject + have/has + been + V-ing",
+      "examples": [
+        "I have been waiting for two hours."
+      ],
+      "complexity": "متقدم",
+      "category": "الأزمنة"
+    },
+    {
+      "id": 9,
+      "title": "الماضي التام المستمر (Past Perfect Continuous)",
+      "description": "يعبر عن فعل كان مستمرا في الماضي قبل وقوع فعل آخر.",
+      "rule": "Subject + had + been + V-ing",
+      "examples": [
+        "She had been sleeping when the phone rang."
+      ],
+      "complexity": "متقدم",
+      "category": "الأزمنة"
+    },
+    {
+      "id": 10,
+      "title": "المستقبل المستمر (Future Continuous)",
+      "description": "يعبر عن فعل سيكون مستمرا في نقطة زمنية في المستقبل.",
+      "rule": "Subject + will be + V-ing",
+      "examples": [
+        "I will be studying at 8 PM."
+      ],
+      "complexity": "متوسط",
+      "category": "الأزمنة"
+    },
+    {
+      "id": 11,
+      "title": "المستقبل التام (Future Perfect)",
+      "description": "يعبر عن فعل سيكون قد اكتمل قبل نقطة زمنية في المستقبل.",
+      "rule": "Subject + will have + V3",
+      "examples": [
+        "I will have finished the project by Monday."
+      ],
+      "complexity": "متقدم",
+      "category": "الأزمنة"
+    },
+    {
+      "id": 12,
+      "title": "حالة الشرط الصفرية (Zero Conditional)",
+      "description": "للتعبير عن حقائق علمية وعامة.",
+      "rule": "If + Present Simple, Present Simple",
+      "examples": [
+        "If you heat ice, it melts."
+      ],
+      "complexity": "مبتدئ",
+      "category": "الجمل الشرطية"
+    },
+    {
+      "id": 13,
+      "title": "حالة الشرط الأولى (First Conditional)",
+      "description": "للتعبير عن احتمالات في المستقبل.",
+      "rule": "If + Present Simple, will + V1",
+      "examples": [
+        "If it rains, we will stay at home."
+      ],
+      "complexity": "متوسط",
+      "category": "الجمل الشرطية"
+    },
+    {
+      "id": 14,
+      "title": "حالة الشرط الثانية (Second Conditional)",
+      "description": "للتعبير عن مواقف خيالية أو غير محتملة في الحاضر.",
+      "rule": "If + Past Simple, would + V1",
+      "examples": [
+        "If I had a million dollars, I would travel the world."
+      ],
+      "complexity": "متوسط",
+      "category": "الجمل الشرطية"
+    },
+    {
+      "id": 15,
+      "title": "حالة الشرط الثالثة (Third Conditional)",
+      "description": "للتعبير عن ندم أو مواقف مستحيلة في الماضي.",
+      "rule": "If + Past Perfect, would have + V3",
+      "examples": [
+        "If I had studied harder, I would have passed."
+      ],
+      "complexity": "متقدم",
+      "category": "الجمل الشرطية"
+    },
+    {
+      "id": 16,
+      "title": "المبني للمجهول (Passive Voice - Present)",
+      "description": "يستخدم عندما يكون المفعول به أهم من الفاعل في المضارع.",
+      "rule": "Object + am/is/are + V3",
+      "examples": [
+        "The book is written by John."
+      ],
+      "complexity": "متوسط",
+      "category": "المبني للمجهول"
+    },
+    {
+      "id": 17,
+      "title": "المبني للمجهول (Passive Voice - Past)",
+      "description": "يستخدم للمبني للمجهول في الماضي.",
+      "rule": "Object + was/were + V3",
+      "examples": [
+        "The window was broken."
+      ],
+      "complexity": "متوسط",
+      "category": "المبني للمجهول"
+    },
+    {
+      "id": 18,
+      "title": "الكلام المنقول (Reported Speech - Statements)",
+      "description": "لنقل كلام شخص آخر دون اقتباس دقيق.",
+      "rule": "Change tense one step back (e.g. Present to Past)",
+      "examples": [
+        "He said (that) he was tired."
+      ],
+      "complexity": "متقدم",
+      "category": "الكلام المنقول"
+    },
+    {
+      "id": 19,
+      "title": "الكلام المنقول (Reported Speech - Questions)",
+      "description": "لنقل الأسئلة.",
+      "rule": "Subject + asked + if/whether + Statement order",
+      "examples": [
+        "She asked if I liked coffee."
+      ],
+      "complexity": "متقدم",
+      "category": "الكلام المنقول"
+    },
+    {
+      "id": 20,
+      "title": "الأفعال الناقصة (Modal Verbs - Can/Could)",
+      "description": "للتعبير عن القدرة أو الإذن.",
+      "rule": "Subject + can/could + V1",
+      "examples": [
+        "I can swim.",
+        "Could you help me?"
+      ],
+      "complexity": "مبتدئ",
+      "category": "الأفعال الناقصة"
+    },
+    {
+      "id": 21,
+      "title": "الأفعال الناقصة (Modal Verbs - Must/Have to)",
+      "description": "للتعبير عن الإلزام والضرورة.",
+      "rule": "Subject + must/have to + V1",
+      "examples": [
+        "You must wear a seatbelt."
+      ],
+      "complexity": "مبتدئ",
+      "category": "الأفعال الناقصة"
+    },
+    {
+      "id": 22,
+      "title": "الأفعال الناقصة (Modal Verbs - Should/Ought to)",
+      "description": "لإعطاء النصيحة.",
+      "rule": "Subject + should + V1",
+      "examples": [
+        "You should see a doctor."
+      ],
+      "complexity": "مبتدئ",
+      "category": "الأفعال الناقصة"
+    },
+    {
+      "id": 23,
+      "title": "ضمائر الوصل (Relative Pronouns)",
+      "description": "لربط الجمل وتقديم معلومات إضافية (who, which, that).",
+      "rule": "Noun + who/which/that + Clause",
+      "examples": [
+        "The man who called is my brother."
+      ],
+      "complexity": "متوسط",
+      "category": "الضمائر"
+    },
+    {
+      "id": 24,
+      "title": "الأسماء المعدودة وغير المعدودة",
+      "description": "التمييز بين ما يمكن عده وما لا يمكن.",
+      "rule": "Countable: apple(s) / Uncountable: water (no plural)",
+      "examples": [
+        "I have three apples.",
+        "I need some water."
+      ],
+      "complexity": "مبتدئ",
+      "category": "الأسماء"
+    },
+    {
+      "id": 25,
+      "title": "أدوات النكرة والمعرفة (a, an, the)",
+      "description": "لتحديد الأسماء.",
+      "rule": "Use 'a/an' for general, 'the' for specific.",
+      "examples": [
+        "I saw a cat.",
+        "The cat was black."
+      ],
+      "complexity": "مبتدئ",
+      "category": "الأدوات"
+    },
+    {
+      "id": 26,
+      "title": "صيغ المقارنة (Comparatives)",
+      "description": "لمقارنة شيئين.",
+      "rule": "Adj + -er + than / more + Adj + than",
+      "examples": [
+        "He is taller than me.",
+        "This is more expensive."
+      ],
+      "complexity": "متوسط",
+      "category": "الصفات"
+    },
+    {
+      "id": 27,
+      "title": "صيغ التفضيل (Superlatives)",
+      "description": "لمقارنة شيء بمجموعة.",
+      "rule": "the + Adj + -est / the most + Adj",
+      "examples": [
+        "He is the tallest.",
+        "This is the most beautiful picture."
+      ],
+      "complexity": "متوسط",
+      "category": "الصفات"
+    },
+    {
+      "id": 28,
+      "title": "حروف الجر للزمن (in, on, at)",
+      "description": "لتحديد الوقت.",
+      "rule": "in (months/years), on (days), at (specific times)",
+      "examples": [
+        "in 2020",
+        "on Monday",
+        "at 5 PM"
+      ],
+      "complexity": "مبتدئ",
+      "category": "حروف الجر"
+    },
+    {
+      "id": 29,
+      "title": "حروف الجر للمكان (in, on, at)",
+      "description": "لتحديد المكان.",
+      "rule": "in (enclosed space), on (surface), at (point)",
+      "examples": [
+        "in the room",
+        "on the table",
+        "at the door"
+      ],
+      "complexity": "مبتدئ",
+      "category": "حروف الجر"
     }
   ]
 }

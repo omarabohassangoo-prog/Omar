@@ -139,7 +139,7 @@ const GrammarLoader: GrammarLoaderType = {
       
       // البحث
       html += '<div class="search-wrapper">';
-      html += `<input class="search-box" id="grammarSearch" placeholder="🔍 ابحث في القواعد..." value="${this._escapeHtml(this.searchQuery)}" />`;
+      html += `<input type="search" class="search-box" id="grammarSearch" placeholder="🔍 ابحث في القواعد..." value="${this._escapeHtml(this.searchQuery)}" />`;
       html += '<span class="result-count" id="grammarResultCount"></span>';
       html += '</div>';
       

@@ -3,7 +3,7 @@
 // ============================================================
 
 import React, { useState, useEffect } from 'react';
-import { Search, Volume2, BookOpen, ChevronRight, AlertCircle } from 'lucide-react';
+import { Search, Volume2, BookOpen, ChevronRight, AlertCircle, X } from 'lucide-react';
 import type { DictionaryEntry } from '../types';
 
 interface SearchEngineProps {
@@ -49,7 +49,7 @@ export const SearchEngine: React.FC<SearchEngineProps> = ({ showToast }) => {
 
     // إنتاج اقتراحات كتابة سريعة
     const matchingWords = dictionary
-      .filter(entry => entry.word.toLowerCase().startsWith(query))
+      .filter(entry => entry.word.toLowerCase().startsWith(query) || entry.ar.includes(query))
       .map(entry => entry.word)
       .slice(0, 5);
 
@@ -94,9 +94,17 @@ export const SearchEngine: React.FC<SearchEngineProps> = ({ showToast }) => {
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
               placeholder="اكتب كلمة... (مثال: routine)"
-              className="w-full p-3 bg-slate-950 border border-slate-800 focus:border-emerald-500/50 focus:outline-none rounded-xl text-xs pl-9"
+              className="w-full p-3 bg-slate-950 border border-slate-800 focus:border-emerald-500/50 focus:outline-none rounded-xl text-xs pl-9 pr-9"
             />
             <Search className="w-4 h-4 text-slate-500 absolute left-3 top-3.5" />
+            {searchQuery && (
+              <button 
+                onClick={() => setSearchQuery('')}
+                className="absolute right-3 top-3.5 text-slate-500 hover:text-white transition-colors"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            )}
           </div>
 
           {/* اقتراحات ذكية فورية أثناء الكتابة */}
@@ -120,27 +128,37 @@ export const SearchEngine: React.FC<SearchEngineProps> = ({ showToast }) => {
         </div>
 
         {/* قائمة النتائج المطابقة */}
-        {results.length > 0 && (
-          <div className="p-4 bg-slate-900/80 border border-slate-800 rounded-2xl shadow-xl flex flex-col gap-2 max-h-[350px] overflow-y-auto">
-            <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-1">الكلمات المطابقة للبحث ({results.length})</span>
-            {results.map((entry, idx) => (
-              <button 
-                key={idx}
-                onClick={() => handleSelectWord(entry)}
-                className={`p-3 text-right text-xs rounded-xl border flex items-center justify-between transition-all ${selectedEntry?.word === entry.word ? 'bg-gradient-to-r from-emerald-500/10 to-teal-500/10 border-emerald-500/30 text-emerald-400' : 'bg-slate-950 border-slate-900 text-slate-300 hover:border-slate-800'}`}
-              >
-                <div className="flex items-center gap-2">
+        {searchQuery.trim() && (
+          <div className="p-4 bg-slate-900/80 border border-slate-800 rounded-2xl shadow-xl flex flex-col gap-2 max-h-[350px] overflow-y-auto mt-4">
+            {results.length > 0 ? (
+              <>
+                <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-1">الكلمات المطابقة للبحث ({results.length})</span>
+                {results.map((entry, idx) => (
                   <button 
-                    onClick={(e) => handlePronounce(entry.word, e)}
-                    className="p-1.5 bg-slate-900 hover:bg-slate-800 rounded-lg text-slate-400 hover:text-white transition-colors"
+                    key={idx}
+                    onClick={() => handleSelectWord(entry)}
+                    className={`p-3 text-right text-xs rounded-xl border flex items-center justify-between transition-all ${selectedEntry?.word === entry.word ? 'bg-gradient-to-r from-emerald-500/10 to-teal-500/10 border-emerald-500/30 text-emerald-400' : 'bg-slate-950 border-slate-900 text-slate-300 hover:border-slate-800'}`}
                   >
-                    <Volume2 className="w-3.5 h-3.5" />
+                    <div className="flex items-center gap-2">
+                      <button 
+                        onClick={(e) => handlePronounce(entry.word, e)}
+                        className="p-1.5 bg-slate-900 hover:bg-slate-800 rounded-lg text-slate-400 hover:text-white transition-colors"
+                      >
+                        <Volume2 className="w-3.5 h-3.5" />
+                      </button>
+                      <span className="font-mono text-sm font-bold">{entry.word}</span>
+                    </div>
+                    <span className="font-sans text-slate-400 max-w-[50%] truncate" dir="rtl">{entry.ar}</span>
                   </button>
-                  <span className="font-mono text-sm font-bold">{entry.word}</span>
-                </div>
-                <span className="font-sans text-slate-400 max-w-[50%] truncate" dir="rtl">{entry.ar}</span>
-              </button>
-            ))}
+                ))}
+              </>
+            ) : (
+              <div className="text-center py-6">
+                <Search className="w-8 h-8 text-slate-700 mx-auto mb-2" />
+                <p className="text-sm text-slate-400 font-bold">لم نجد أية نتائج لـ "{searchQuery}"</p>
+                <p className="text-xs text-slate-500 mt-1">تأكد من صحة الكلمة المكتوبة.</p>
+              </div>
+            )}
           </div>
         )}
       </div>

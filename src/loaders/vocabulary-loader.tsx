@@ -393,7 +393,7 @@ const VocabularyLoader: VocabularyLoaderType = {
       }
       
       html += '<div class="search-wrapper">';
-      html += `<input class="search-box" id="vocabSearch" placeholder="🔍 ابحث في المفردات (بالإنجليزية أو العربية)..." value="${this._escapeHtml(this.searchQuery)}" />`;
+      html += `<input type="search" class="search-box" id="vocabSearch" placeholder="🔍 ابحث في المفردات (بالإنجليزية أو العربية)..." value="${this._escapeHtml(this.searchQuery)}" />`;
       html += '<span class="result-count" id="vocabResultCount"></span>';
       html += '</div>';
       

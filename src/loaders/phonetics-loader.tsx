@@ -169,7 +169,7 @@ const PhoneticsLoader: PhoneticsLoaderType = {
       html += `<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;background:var(--bg-card);padding:8px 12px;border-radius:var(--radius-sm);border:1px solid var(--border-color);">${subTabsHtml}</div>`;
       
       html += '<div style="margin-bottom:12px;">';
-      html += '<input id="phoneticSearch" placeholder="🔍 ابحث في الرموز الصوتية..." style="width:100%;padding:10px 16px;border-radius:30px;border:1px solid var(--border-color);background:var(--bg-card);color:var(--text-primary);font-family:inherit;" />';
+      html += '<input type="search" id="phoneticSearch" placeholder="🔍 ابحث في الرموز الصوتية..." style="width:100%;padding:10px 16px;border-radius:30px;border:1px solid var(--border-color);background:var(--bg-card);color:var(--text-primary);font-family:inherit;" />';
       html += '<span id="phoneticResultCount" style="margin-right:10px;font-size:0.85rem;color:var(--text-muted);"></span>';
       html += '</div>';
       

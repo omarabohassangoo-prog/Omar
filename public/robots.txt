@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://fluentway.com/sitemap.xml
+
+Sitemap: https://fluentway.ai.studio/sitemap.xml

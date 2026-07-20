@@ -80,9 +80,10 @@ export const Dashboard: React.FC<DashboardProps> = ({ userProgress, onUpdateProg
     setIsTyping(true);
 
     try {
+      const messageHistory = chatMessages.slice(-10);
       const payload = {
         messages: [
-          ...chatMessages.map(m => ({ sender: m.sender, text: m.text })),
+          ...messageHistory.map(m => ({ sender: m.sender, text: m.text })),
           { sender: 'user', text: userText }
         ]
       };
@@ -356,6 +357,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ userProgress, onUpdateProg
                 type="text"
                 value={userInput}
                 onChange={e => setUserInput(e.target.value)}
+                onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()}
                 placeholder="اكتب رسالتك بالإنجليزية للممارسة والتصحيح..."
                 className="flex-grow p-3 bg-slate-900 border border-slate-800 rounded-xl text-sm focus:border-emerald-500/50 focus:outline-none"
               />
