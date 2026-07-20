@@ -210,6 +210,12 @@ export interface AdSlot {
 }
 
 export interface AdsConfig {
+  google_site_verification?: string;
+  gemini_api_key?: string;
+  gemini_model?: string;
+  site_url?: string;
+  site_icon_url?: string;
+  google_analytics_id?: string;
   ad_slots: Record<string, AdSlot>;
   display_settings: {
     delay_between_ads: number;

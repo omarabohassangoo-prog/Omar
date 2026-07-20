@@ -3,13 +3,233 @@ import path from "path";
 import { createServer as createViteServer } from "vite";
 import { GoogleGenAI, Type } from "@google/genai";
 import dotenv from "dotenv";
+import fs from "fs";
 
 dotenv.config();
 
 const app = express();
 const PORT = 3000;
 
-app.use(express.json());
+app.use(express.json({ limit: '50mb' }));
+
+// --- Safe File Manager API Endpoints ---
+const getSafePath = (targetPath: string) => {
+  const rootDir = process.cwd();
+  const resolvedPath = path.resolve(rootDir, targetPath || ".");
+  if (!resolvedPath.startsWith(rootDir)) {
+    throw new Error("Access denied: Outside of workspace directory");
+  }
+  return resolvedPath;
+};
+
+// 1. List directory content
+app.get("/api/admin/files/list", (req, res) => {
+  try {
+    const dirParam = (req.query.dir as string) || "";
+    const safeDir = getSafePath(dirParam);
+    
+    if (!fs.existsSync(safeDir)) {
+      return res.status(404).json({ error: "Directory not found" });
+    }
+
+    const items = fs.readdirSync(safeDir, { withFileTypes: true });
+    
+    const result = items
+      .map(item => {
+        const itemRelativePath = path.relative(process.cwd(), path.join(safeDir, item.name));
+        let size = 0;
+        try {
+          size = fs.statSync(path.join(safeDir, item.name)).size;
+        } catch (_) {}
+        
+        return {
+          name: item.name,
+          path: itemRelativePath || ".",
+          isDirectory: item.isDirectory(),
+          size
+        };
+      });
+    
+    // Sort directories first, then files
+    result.sort((a, b) => {
+      if (a.isDirectory && !b.isDirectory) return -1;
+      if (!a.isDirectory && b.isDirectory) return 1;
+      return a.name.localeCompare(b.name);
+    });
+
+    return res.json({ 
+      success: true, 
+      currentDir: path.relative(process.cwd(), safeDir) || ".", 
+      items: result 
+    });
+  } catch (err: any) {
+    return res.status(500).json({ error: "Failed to list directory", details: err.message });
+  }
+});
+
+// 2. Read file content
+app.get("/api/admin/files/read", (req, res) => {
+  try {
+    const filePathParam = req.query.path as string;
+    if (!filePathParam) {
+      return res.status(400).json({ error: "Path is required" });
+    }
+    const safePath = getSafePath(filePathParam);
+    if (!fs.existsSync(safePath) || fs.statSync(safePath).isDirectory()) {
+      return res.status(404).json({ error: "File not found or is a directory" });
+    }
+
+    // Check if binary (simple heuristic or common extensions)
+    const binaryExtensions = ['.png', '.jpg', '.jpeg', '.gif', '.ico', '.woff', '.woff2', '.ttf', '.pdf', '.zip', '.tar', '.gz', '.mp3', '.wav', '.ogg'];
+    const ext = path.extname(safePath).toLowerCase();
+    const isBinary = binaryExtensions.includes(ext);
+
+    if (isBinary) {
+      const content = fs.readFileSync(safePath);
+      return res.json({
+        success: true,
+        path: filePathParam,
+        isBinary: true,
+        content: content.toString('base64')
+      });
+    } else {
+      const content = fs.readFileSync(safePath, 'utf-8');
+      return res.json({
+        success: true,
+        path: filePathParam,
+        isBinary: false,
+        content
+      });
+    }
+  } catch (err: any) {
+    return res.status(500).json({ error: "Failed to read file", details: err.message });
+  }
+});
+
+// 3. Save or write file content
+app.post("/api/admin/files/write", (req, res) => {
+  try {
+    const { path: filePathParam, content, isBase64 } = req.body;
+    if (!filePathParam) {
+      return res.status(400).json({ error: "Path is required" });
+    }
+    const safePath = getSafePath(filePathParam);
+
+    // Ensure parent directory exists
+    const parentDir = path.dirname(safePath);
+    if (!fs.existsSync(parentDir)) {
+      fs.mkdirSync(parentDir, { recursive: true });
+    }
+
+    if (isBase64) {
+      const buffer = Buffer.from(content, 'base64');
+      fs.writeFileSync(safePath, buffer);
+    } else {
+      fs.writeFileSync(safePath, content || "", 'utf-8');
+    }
+
+    return res.json({ success: true, message: "تم حفظ الملف بنجاح" });
+  } catch (err: any) {
+    return res.status(500).json({ error: "Failed to save file", details: err.message });
+  }
+});
+
+// 4. Create new empty file or folder
+app.post("/api/admin/files/create", (req, res) => {
+  try {
+    const { path: targetPathParam, isDirectory } = req.body;
+    if (!targetPathParam) {
+      return res.status(400).json({ error: "Path is required" });
+    }
+    const safePath = getSafePath(targetPathParam);
+
+    if (fs.existsSync(safePath)) {
+      return res.status(400).json({ error: "الملف أو المجلد موجود بالفعل" });
+    }
+
+    if (isDirectory) {
+      fs.mkdirSync(safePath, { recursive: true });
+    } else {
+      // Ensure parent directory exists
+      const parentDir = path.dirname(safePath);
+      if (!fs.existsSync(parentDir)) {
+        fs.mkdirSync(parentDir, { recursive: true });
+      }
+      fs.writeFileSync(safePath, "", "utf-8");
+    }
+
+    return res.json({ success: true, message: "تم إنشاء العنصر بنجاح" });
+  } catch (err: any) {
+    return res.status(500).json({ error: "Failed to create item", details: err.message });
+  }
+});
+
+// 5. Delete file or directory
+app.post("/api/admin/files/delete", (req, res) => {
+  try {
+    const { path: targetPathParam } = req.body;
+    if (!targetPathParam) {
+      return res.status(400).json({ error: "Path is required" });
+    }
+    const safePath = getSafePath(targetPathParam);
+
+    if (!fs.existsSync(safePath)) {
+      return res.status(404).json({ error: "العنصر غير موجود" });
+    }
+
+    const stat = fs.statSync(safePath);
+    if (stat.isDirectory()) {
+      fs.rmSync(safePath, { recursive: true, force: true });
+    } else {
+      fs.unlinkSync(safePath);
+    }
+
+    return res.json({ success: true, message: "تم حذف العنصر بنجاح" });
+  } catch (err: any) {
+    return res.status(500).json({ error: "Failed to delete item", details: err.message });
+  }
+});
+
+// API Endpoints for Admin Settings
+app.get("/api/admin/settings", (req, res) => {
+  const adsPath = path.join(process.cwd(), "public", "ads_config.json");
+  try {
+    if (fs.existsSync(adsPath)) {
+      const data = fs.readFileSync(adsPath, "utf-8");
+      return res.json(JSON.parse(data));
+    }
+    return res.status(404).json({ error: "Configuration file not found" });
+  } catch (err: any) {
+    return res.status(500).json({ error: "Failed to read configuration", details: err.message });
+  }
+});
+
+app.post("/api/admin/settings", (req, res) => {
+  const configData = req.body;
+  if (!configData) {
+    return res.status(400).json({ error: "No data provided" });
+  }
+
+  const adsPath = path.join(process.cwd(), "public", "ads_config.json");
+  try {
+    fs.writeFileSync(adsPath, JSON.stringify(configData, null, 2), "utf-8");
+    
+    // Also update dist/public or dist/ if running in production
+    if (process.env.NODE_ENV === "production") {
+      const distAdsPath = path.join(process.cwd(), "dist", "ads_config.json");
+      try {
+        fs.writeFileSync(distAdsPath, JSON.stringify(configData, null, 2), "utf-8");
+      } catch (prodErr) {
+        console.warn("Failed to write to production dist folder:", prodErr);
+      }
+    }
+    
+    return res.json({ success: true, message: "تم حفظ الإعدادات بنجاح" });
+  } catch (err: any) {
+    console.error("Failed to save configuration:", err);
+    return res.status(500).json({ error: "Failed to save configuration", details: err.message });
+  }
+});
 
 // Initialize Gemini Client
 const apiKey = process.env.GEMINI_API_KEY;
@@ -37,11 +257,37 @@ app.post("/api/chat", async (req, res) => {
     return res.status(400).json({ error: "Invalid messages format. Expected an array." });
   }
 
+  // Determine Gemini client and model dynamically
+  let chatAi = ai;
+  let chatModel = "gemini-3.5-flash";
+
+  try {
+    const adsPath = path.join(process.cwd(), "public", "ads_config.json");
+    if (fs.existsSync(adsPath)) {
+      const config = JSON.parse(fs.readFileSync(adsPath, "utf-8"));
+      if (config.gemini_api_key && config.gemini_api_key.trim()) {
+        chatAi = new GoogleGenAI({
+          apiKey: config.gemini_api_key.trim(),
+          httpOptions: {
+            headers: {
+              'User-Agent': 'aistudio-build',
+            }
+          }
+        });
+      }
+      if (config.gemini_model && config.gemini_model.trim()) {
+        chatModel = config.gemini_model.trim();
+      }
+    }
+  } catch (err) {
+    console.error("Failed to read dynamic Gemini config, falling back to environment defaults:", err);
+  }
+
   // If Gemini client is not initialized, return high-quality offline response
-  if (!ai) {
+  if (!chatAi) {
     return res.json({
-      reply: "Hello! I am Aura, your offline AI Tutor. To activate my full potential, please configure your GEMINI_API_KEY in Settings > Secrets.",
-      translation: "مرحباً! أنا أورا، معلمك الآلي في وضع عدم الاتصال. لتفعيل كامل قدراتي، يرجى تهيئة مفتاح GEMINI_API_KEY في الإعدادات.",
+      reply: "Hello! I am Aura, your offline AI Tutor. To activate my full potential, please configure your GEMINI_API_KEY in Admin Dashboard > AI Settings or Settings > Secrets.",
+      translation: "مرحباً! أنا أورا، معلمك الآلي في وضع عدم الاتصال. لتفعيل كامل قدراتي، يرجى تهيئة مفتاح GEMINI_API_KEY في لوحة تحكم المدير أو الإعدادات.",
       correction: "You are doing great! Keep practicing.",
       tips: "Always remember to capitalize the first letter of a sentence and end it with a punctuation mark."
     });
@@ -66,8 +312,8 @@ Provide a short, helpful learning tip in the 'tips' field (e.g., explaining a pr
       };
     });
 
-    const response = await ai.models.generateContent({
-      model: "gemini-3.5-flash",
+    const response = await chatAi.models.generateContent({
+      model: chatModel,
       contents: contents,
       config: {
         systemInstruction: systemInstruction,

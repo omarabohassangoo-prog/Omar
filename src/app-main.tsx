@@ -79,6 +79,105 @@ const App: React.FC = () => {
 
   // تهيئة التطبيق وجلب البيانات
   useEffect(() => {
+    // جلب التحقق من ملكية جوجل ومعلومات الموقع ديناميكياً
+    fetch('/api/admin/settings')
+      .then(res => {
+        const contentType = res.headers.get('content-type');
+        if (res.ok && contentType && contentType.includes('application/json')) {
+          return res.json();
+        }
+        return fetch('/ads_config.json').then(r => r.json());
+      })
+      .then(data => {
+        if (!data) return;
+
+        // 1. رمز التحقق من ملكية جوجل
+        if (data.google_site_verification) {
+          let meta = document.querySelector('meta[name="google-site-verification"]');
+          if (!meta) {
+            meta = document.createElement('meta');
+            meta.setAttribute('name', 'google-site-verification');
+            document.head.appendChild(meta);
+          }
+          meta.setAttribute('content', data.google_site_verification);
+        }
+
+        // 2. رابط الموقع الكنسي (Canonical URL) وروابط OG
+        if (data.site_url) {
+          // Canonical link
+          let canonical = document.querySelector('link[rel="canonical"]');
+          if (!canonical) {
+            canonical = document.createElement('link');
+            canonical.setAttribute('rel', 'canonical');
+            document.head.appendChild(canonical);
+          }
+          canonical.setAttribute('href', data.site_url);
+
+          // Open Graph URL
+          let ogUrl = document.querySelector('meta[property="og:url"]');
+          if (!ogUrl) {
+            ogUrl = document.createElement('meta');
+            ogUrl.setAttribute('property', 'og:url');
+            document.head.appendChild(ogUrl);
+          }
+          ogUrl.setAttribute('content', data.site_url);
+        }
+
+        // 3. أيقونة الموقع (Favicon)
+        if (data.site_icon_url) {
+          // Standard favicon
+          let icon = document.querySelector('link[rel="icon"]');
+          if (!icon) {
+            icon = document.createElement('link');
+            icon.setAttribute('rel', 'icon');
+            document.head.appendChild(icon);
+          }
+          icon.setAttribute('href', data.site_icon_url);
+
+          // Shortcut icon
+          let shortcutIcon = document.querySelector('link[rel="shortcut icon"]');
+          if (!shortcutIcon) {
+            shortcutIcon = document.createElement('link');
+            shortcutIcon.setAttribute('rel', 'shortcut icon');
+            document.head.appendChild(shortcutIcon);
+          }
+          shortcutIcon.setAttribute('href', data.site_icon_url);
+
+          // Apple touch icon
+          let appleIcon = document.querySelector('link[rel="apple-touch-icon"]');
+          if (!appleIcon) {
+            appleIcon = document.createElement('link');
+            appleIcon.setAttribute('rel', 'apple-touch-icon');
+            document.head.appendChild(appleIcon);
+          }
+          appleIcon.setAttribute('href', data.site_icon_url);
+        }
+
+        // 4. تحليلات جوجل (Google Analytics gtag.js)
+        if (data.google_analytics_id && data.google_analytics_id.trim()) {
+          const gaId = data.google_analytics_id.trim();
+          
+          // Check if already injected
+          let gaScript = document.querySelector(`script[src*="googletagmanager.com/gtag/js"]`);
+          if (!gaScript) {
+            gaScript = document.createElement('script');
+            gaScript.setAttribute('async', 'true');
+            gaScript.setAttribute('src', `https://www.googletagmanager.com/gtag/js?id=${gaId}`);
+            document.head.appendChild(gaScript);
+
+            const inlineScript = document.createElement('script');
+            inlineScript.innerHTML = `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${gaId}');
+            `;
+            document.head.appendChild(inlineScript);
+          }
+        }
+      })
+      .catch(err => console.error('Error fetching site configuration:', err));
+
     // تحميل تفضيلات وسجلات المستخدم
     const savedProgress = localStorage.getItem('aura_user_progress');
     const savedPrefs = localStorage.getItem('aura_user_preferences');
@@ -420,7 +519,7 @@ const App: React.FC = () => {
 
         {currentTab === 'admin' && (
           isAdminLoggedIn ? (
-            <AdminDashboard onLogout={() => setIsAdminLoggedIn(false)} />
+            <AdminDashboard onLogout={() => setIsAdminLoggedIn(false)} showToast={showToast} />
           ) : (
             <div className="flex flex-col items-center justify-center h-full p-6">
               <Lock className="w-12 h-12 text-slate-500 mb-4" />
